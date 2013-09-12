@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<module configVersion="1.2">
+
+	<!-- Module Properties -->
+	<id>hiemonitoring</id>
+	<name>HIE Monitoring Module</name>
+	<version>1.0-SNAPSHOT</version>
+	<package>org.openmrs.module.hiemonitoring</package>
+	<author>Desire Manzi - JHSR</author>
+	<description>
+		HIE Monitoring Module
+	</description>
+	<updateURL>https://dev.openmrs.org/modules/download/hiemonitoring/update.rdf</updateURL>
+	<require_version>1.8.2</require_version>
+	<!-- / Module Properties -->
+
+	
+	<!-- Required Modules -->
+	<require_modules>
+																											
+		<require_module version="0.5.1-SNAPSHOT">
+			org.openmrs.module.rheapocadapter
+		</require_module>
+			
+	</require_modules>
+	<!-- / Required Modules -->
+	
+	<!-- Module Activator -->
+	<activator>org.openmrs.module.hiemonitoring.HIEMonitoringActivator</activator>
+	
+	
+	<!-- Adds link to admin page -->
+	<extension>
+		<point>org.openmrs.admin.list</point>
+		<class>org.openmrs.module.hiemonitoring.extension.html.AdminList</class>
+	</extension>
+	<!--  -->
+	<globalProperty>
+		<property>hiemonitoring.sendreport</property>
+		<defaultValue>/ws/rest/v1/report</defaultValue>
+		<description>
+			The URL needed to connect to RHEA in order to
+			send the transaction reports to the HIM.
+		</description>
+	</globalProperty>
+	<!-- Maps hibernate file's, if present -->
+	<mappingFiles>
+				
+		HIEMonitoring.hbm.xml
+				
+	</mappingFiles>
+
+	<!-- Internationalization -->
+	<!-- All message codes should start with hiemonitoring. -->
+	<messages>
+		<lang>en</lang>
+		<file>messages.properties</file>
+	</messages>
+	<messages>
+		<lang>fr</lang>
+		<file>messages_fr.properties</file>
+	</messages>
+	<messages>
+		<lang>es</lang>
+		<file>messages_es.properties</file>
+	</messages>
+	<!-- /Internationalization -->
+
+</module>
+
